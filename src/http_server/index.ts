@@ -4,7 +4,7 @@ import * as http from 'http';
 
 export const httpServer = http.createServer(function (req, res) {
     const __dirname = path.resolve(path.dirname(''));
-    const file_path = __dirname + (req.url === '/' ? '/frontend/index.html' : '/frontend' + req.url);
+    const file_path = __dirname + (req.url === '/' ? '/frontend/dist/index.html' : '/frontend/dist' + req.url);
     fs.readFile(file_path, function (err, data) {
         if (err) {
             res.writeHead(404);

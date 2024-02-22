@@ -5,6 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "tsc && node dist/index.js",
+    "build:front": "cd frontend && npm run build",
     "start:dev": "nodemon index.ts"
   },
   "author": "",
