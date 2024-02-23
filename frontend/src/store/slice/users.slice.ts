@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { RegData } from 'src/types/responseWS';
+import { RegData, RoomsData, WinnersData } from 'src/types/responseWS';
 import { RootState } from '../store';
 
 interface UserTable {
   name: string;
-  win: number;
+  wins: number;
 }
 
 export interface UsersState {
@@ -13,6 +13,7 @@ export interface UsersState {
   isLoading: boolean;
   errorMessage: string | null;
   allUsers: UserTable[];
+  rooms: RoomsData;
 }
 
 const initialState: UsersState = {
@@ -21,6 +22,7 @@ const initialState: UsersState = {
   errorMessage: null,
   id: null,
   allUsers: [],
+  rooms: [],
 };
 
 const usersSlice = createSlice({
@@ -38,11 +40,17 @@ const usersSlice = createSlice({
         state.id = payload.index;
       }
     },
+    setAllUsers: (state, { payload }: { payload: WinnersData }) => {
+      state.allUsers = payload;
+    },
+    setRooms: (state, { payload }: { payload: RoomsData }) => {
+      state.rooms = payload;
+    },
   },
 });
 
 export const getUsersState = (state: RootState) => state.usersReducer;
 
-export const { setUser } = usersSlice.actions;
+export const { setUser, setAllUsers, setRooms } = usersSlice.actions;
 
 export default usersSlice.reducer;

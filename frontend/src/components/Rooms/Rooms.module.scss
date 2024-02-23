@@ -1,0 +1,68 @@
+.rooms {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 255, 255, 0.699);
+  border-radius: 20px 5px 5px 20px;
+  padding: 10px;
+  flex: 1;
+  box-shadow: 0px 0px 20px 0px #ffffff;
+  transition: box-shadow 0.3s ease-in-out;
+  position: relative;
+  min-height: 100px;
+  max-height: 300px;
+  overflow-x: auto;
+  min-width: 200px;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 0px 20px 6px #ffffff;
+  }
+
+  > h3 {
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 2px #000000;
+  }
+
+  button {
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  ol {
+    max-width: 600px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    li {
+      color: #ffffff;
+      background-color: #000000d3;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        background-color: #00000077;
+        color: #ffffff;
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar {
+    background-color: #242526;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #7644b5;
+    border-radius: 16px;
+    border: #242526 1px solid;
+  }
+}

@@ -9,14 +9,14 @@ export default function Login() {
   const [name, setName] = useState('');
 
   const handleNameSubmit = (name: string) => {
-      sendMessage(
-        stringifyMessage({
-          type: 'reg',
-          data: {
-            name,
-            password: '',
-          },
-        })
+    sendMessage(
+      stringifyMessage({
+        type: 'reg',
+        data: {
+          name,
+          password: '',
+        },
+      })
     );
   };
 

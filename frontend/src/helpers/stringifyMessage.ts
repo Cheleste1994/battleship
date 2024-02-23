@@ -5,7 +5,7 @@ type PropsStringifyMessage<T> = {
 
 export const stringifyMessage = <T>({
   data,
-  type
+  type,
 }: PropsStringifyMessage<T>): string => {
   const dataString = JSON.stringify(data);
 

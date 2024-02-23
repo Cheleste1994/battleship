@@ -5,9 +5,9 @@ type ResponseMessage<T> = {
 };
 
 export const parseMessage = <T>(
-  dataMessage: string | undefined): ResponseMessage<T> => {
+  dataMessage: string | undefined
+): ResponseMessage<T> => {
   if (dataMessage) {
-
     let { data, id, type } = JSON.parse(dataMessage) as ResponseMessage<string>;
 
     if (typeof data === 'string' && data !== '') {
@@ -15,5 +15,5 @@ export const parseMessage = <T>(
     }
     return { data, id, type };
   }
-  return {data: '', id: 0, type: 'error'}
+  return { data: '', id: 0, type: 'error' };
 };
