@@ -1,3 +1,4 @@
+import { Server } from "http";
 import { WebSocketServer } from "ws";
 import GameRoomDB from "./db/GameRoomsDB";
 import SessionDB from "./db/SessionDB";
@@ -5,8 +6,8 @@ import UsersDB from "./db/UsersDB";
 import messageHandlers from "./modules/messageHandlers";
 import { updateAllRooms } from "./modules/update/updateAllRooms";
 
-export default function WS(port: number) {
-  const wss = new WebSocketServer({ port });
+export default function WS(httpServer: Server) {
+  const wss = new WebSocketServer({ server: httpServer });
   const dbSession = new SessionDB();
   const dbUser = new UsersDB();
   const dbRoom = new GameRoomDB();

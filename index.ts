@@ -1,15 +1,18 @@
-import { httpServer } from "./src/http_server/index";
+import express from "express";
+import { createServer } from "http";
 import WS from "./src/ws/index";
+import cors from "cors";
 
-const HTTP_PORT = 8181;
-const WS_PORT = 3000;
+const PORT = 5000;
 
-console.log(`Start static http server on the ${HTTP_PORT} port!`);
-httpServer.listen(HTTP_PORT);
+const app = express();
 
-const wss = WS(WS_PORT);
+app.use(cors());
 
-wss.on('listening', () => {
-  console.log(`Start WebSocket server on the ${WS_PORT} port!`)
-})
+const httpServer = createServer(app);
 
+WS(httpServer);
+
+httpServer.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
