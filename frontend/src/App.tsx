@@ -1,14 +1,19 @@
-
-const wss = new WebSocket('ws://localhost:5000/')
-
-wss.onopen = () => {
-}
+import { Suspense, useEffect } from 'react';
+import { Provider } from 'react-redux';
+import './App.scss';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import Loading from './components/Loading/Loading';
+import Home from './pages/Home/Home';
+import { store } from './store/store';
 
 export default function App() {
-
   return (
-    <div>
-      Hello
-    </div>
-  )
+    <ErrorBoundary>
+      <Provider store={store}>
+        <Suspense fallback={<Loading />}>
+          <Home />
+        </Suspense>
+      </Provider>
+    </ErrorBoundary>
+  );
 }

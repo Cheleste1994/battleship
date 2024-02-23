@@ -9,6 +9,7 @@ export default function Fallback(props: FallbackProps) {
   return (
       <div
         style={{
+          display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           gap: 5,

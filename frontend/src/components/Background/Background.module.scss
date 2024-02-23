@@ -1,0 +1,40 @@
+.background {
+  background-image: url('/background_water.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-width: 100vw;
+  min-height: 100dvh;
+  min-height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.images {
+  background-image: url('/background_ships.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-width: 100vw;
+  min-height: 100dvh;
+  min-height: 100vh;
+
+  animation: identifier infinite 4s;
+}
+
+@keyframes identifier {
+  0% {
+    transform: rotate(0.5deg);
+  }
+
+  50% {
+    transform: rotate(-0.5deg);
+  }
+
+  100% {
+    transform: rotate(0.5deg);
+  }
+}
