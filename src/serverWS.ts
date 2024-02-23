@@ -6,7 +6,7 @@ import UsersDB from "./db/UsersDB";
 import messageHandlers from "./modules/messageHandlers";
 import { updateAllRooms } from "./modules/update/updateAllRooms";
 
-export default function WS(httpServer: Server) {
+export default function serverWS(httpServer: Server) {
   const wss = new WebSocketServer({ server: httpServer });
   const dbSession = new SessionDB();
   const dbUser = new UsersDB();
