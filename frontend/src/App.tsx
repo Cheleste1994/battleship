@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import { Provider } from 'react-redux';
 import './App.scss';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';

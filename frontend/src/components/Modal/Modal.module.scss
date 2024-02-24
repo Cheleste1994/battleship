@@ -1,0 +1,31 @@
+.modal {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  right: 10px;
+  width: 200px;
+  transform: translateX(400px);
+
+  > div {
+    padding: 10px;
+  }
+}
+
+.active {
+  animation: modal 3s ease-in-out;
+}
+
+@keyframes modal {
+  0% {
+    transform: translateX(400px);
+  }
+  20% {
+    transform: translateX(0px);
+  }
+  80% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(400px);
+  }
+}

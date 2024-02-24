@@ -5,6 +5,12 @@ export interface RegData {
   errorText: string;
 }
 
+export interface CreateGameData {
+  idGame: number | string;
+  idPlayer: number | string;
+  name: string;
+}
+
 export type WinnersData = {
   name: string;
   wins: number;
@@ -16,4 +22,4 @@ export type RoomsData = {
     name: string;
     index: string | number;
   }[];
-}[];
+};

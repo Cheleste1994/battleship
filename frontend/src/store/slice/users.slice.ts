@@ -13,7 +13,7 @@ export interface UsersState {
   isLoading: boolean;
   errorMessage: string | null;
   allUsers: UserTable[];
-  rooms: RoomsData;
+  rooms: RoomsData[];
 }
 
 const initialState: UsersState = {
@@ -43,7 +43,7 @@ const usersSlice = createSlice({
     setAllUsers: (state, { payload }: { payload: WinnersData }) => {
       state.allUsers = payload;
     },
-    setRooms: (state, { payload }: { payload: RoomsData }) => {
+    setRooms: (state, { payload }: { payload: RoomsData[] }) => {
       state.rooms = payload;
     },
   },

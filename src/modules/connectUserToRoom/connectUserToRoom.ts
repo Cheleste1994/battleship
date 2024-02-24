@@ -34,27 +34,27 @@ export const connectUserToRoom = (props: PropsCreateRoom) => {
 
     console.log("Result:", result);
 
-    updateAllRooms({ dbRoom, dbSession });
-
-    const responseCreateGame = (idPlayer: number) =>
+    const responseCreateGame = (idPlayer: number, name: string) =>
       responseMessage({
         type: "create_game",
         data: {
           idGame: roomDb?.idGame,
           idPlayer,
+          name
         },
       });
     if (roomDb?.user1.index && roomDb?.user2.index) {
       dbSession
         .getUserSession(roomDb.user1.sessionId)
-        ?.ws.send(responseCreateGame(roomDb.user1.index));
+        ?.ws.send(responseCreateGame(roomDb.user2.index, roomDb.user2.name));
       dbSession
         .getUserSession(roomDb.user2.sessionId)
-        ?.ws.send(responseCreateGame(roomDb.user2.index));
+        ?.ws.send(responseCreateGame(roomDb.user1.index, roomDb.user1.name));
 
       console.log(
         `Users ${roomDb.user1.name} and ${roomDb.user2.name} install ships!`
       );
+      updateAllRooms({ dbRoom, dbSession });
     }
   } else {
     console.log("You can not join your room.");

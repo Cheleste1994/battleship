@@ -4,7 +4,7 @@ import { sendMessage } from 'src/modules/handlerSocket';
 import { RoomsData } from 'src/types/responseWS';
 import styles from './Rooms.module.scss';
 
-export default function Rooms({ rooms }: { rooms: RoomsData }) {
+export default function Rooms({ rooms }: { rooms: RoomsData[] }) {
   return (
     <div className={styles.rooms}>
       <h3>Rooms in game</h3>

@@ -31,22 +31,22 @@ export default class UsersDB {
       }
 
       return {
-        name: user.name,
-        index: index,
+        name: this.initialState[index].name,
+        index: this.initialState[index].id,
         error: false,
         errorText: "",
       };
     }
 
-    this.initialState.push({
+    const indexNewUser = this.initialState.push({
       name: user.name,
       password: user.password,
       id: this.generateUniqueId(user.name || ""),
       wins: 0,
     });
     return {
-      name: user.name,
-      index: this.initialState.length - 1,
+      name: this.initialState[indexNewUser - 1].name,
+      index: this.initialState[indexNewUser - 1].id,
       error: false,
       errorText: "",
     };

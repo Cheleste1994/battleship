@@ -8,12 +8,12 @@ export const parseMessage = <T>(
   dataMessage: string | undefined
 ): ResponseMessage<T> => {
   if (dataMessage) {
-    let { data, id, type } = JSON.parse(dataMessage) as ResponseMessage<string>;
+    const result = JSON.parse(dataMessage) as ResponseMessage<string>;
 
-    if (typeof data === 'string' && data !== '') {
-      data = JSON.parse(data);
+    if (typeof result.data === 'string' && result.data !== '') {
+      result.data = JSON.parse(result.data);
     }
-    return { data, id, type };
+    return { ...result };
   }
   return { data: '', id: 0, type: 'error' };
 };
