@@ -1,14 +1,12 @@
-import { useAppSelector } from 'src/store/hooks';
-import { getGameRoomsState } from 'src/store/slice/game.slice';
+import Canvas from '../Canvas/Canvas';
+import ChooseShips from '../ChooseShips/ChooseShips';
+import styles from './GameRoom.module.scss';
 
 export default function GameRoom() {
-  const { roomUsers } = useAppSelector(getGameRoomsState);
-
   return (
-    <div>
-      GAME ROOM
-      {roomUsers[0].name}
-      {roomUsers[1].name}
+    <div className={styles.room}>
+      <ChooseShips />
+      <Canvas />
     </div>
   );
 }

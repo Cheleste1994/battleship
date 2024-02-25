@@ -1,0 +1,15 @@
+.canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url(/gif/ship.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+
+  canvas {
+    border: 1px solid white;
+  }
+}

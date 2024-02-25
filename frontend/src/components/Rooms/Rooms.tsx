@@ -7,6 +7,7 @@ import styles from './Rooms.module.scss';
 export default function Rooms({ rooms }: { rooms: RoomsData[] }) {
   return (
     <div className={styles.rooms}>
+      <div className={styles.background} />
       <h3>Rooms in game</h3>
       <ListGroup as="ol">
         {rooms.map((room) => (

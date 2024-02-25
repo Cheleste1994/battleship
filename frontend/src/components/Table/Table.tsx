@@ -1,10 +1,17 @@
 import { memo } from 'react';
 import { Table as TableBootstrap } from 'react-bootstrap';
 import { WinnersData } from 'src/types/responseWS';
+import styles from './Table.module.scss';
 
 export default memo(function Table({ users }: { users: WinnersData }) {
   return (
-    <TableBootstrap striped bordered hover variant="dark">
+    <TableBootstrap
+      striped
+      bordered
+      hover
+      variant="dark"
+      className={styles.table}
+    >
       <thead>
         <tr>
           <th style={{ textAlign: 'center' }}>№</th>
