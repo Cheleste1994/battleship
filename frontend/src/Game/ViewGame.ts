@@ -13,8 +13,10 @@ export default class ViewGame {
     const img = this.options.image;
 
     img.onload = () =>
-      board.forEach(({ x, y }) => {
-        this.drawSquare(x, y);
+      board.forEach((col) => {
+        col.forEach(({ x, y }) => {
+          this.drawSquare(x, y);
+        });
       });
   }
 
@@ -53,6 +55,17 @@ export default class ViewGame {
     }
   }
 
+  hoverShip(x: number, y: number, isBlock?: boolean) {
+    this.clearRect(x, y);
+
+    if (this.ctx) {
+      this.drawSquare(x, y);
+      this.ctx.strokeStyle = isBlock ? 'red' : 'rgb(187, 255, 0)';
+      this.ctx.lineWidth = 2;
+      this.ctx.stroke();
+    }
+  }
+
   clearRect(x: number, y: number) {
     const squareWidth = this.options.width / this.options.size;
 
@@ -62,5 +75,19 @@ export default class ViewGame {
       squareWidth,
       squareWidth
     );
+  }
+
+  drawShip(x: number, y: number, align: boolean, size: number) {
+    const squareWidth = this.options.width / this.options.size;
+
+    if (this.ctx) {
+      this.ctx.drawImage(
+        this.options.imageShip,
+        x * squareWidth,
+        y * squareWidth,
+        align ? squareWidth: squareWidth * size,
+        align ? squareWidth * size : squareWidth
+      );
+    }
   }
 }

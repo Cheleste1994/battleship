@@ -36,15 +36,17 @@ export default function ChooseShips() {
         sizeShips[activeShip],
         alignShips
       );
-
       if (isSet) {
         setShipsCount((state) => ({
           ...state,
           [activeShip]: state[activeShip] - 1,
         }));
       }
+    } else {
+      gameBoard?.shipPositionHandler(0, alignShips);
     }
-  }, [activeShip]);
+  }, [activeShip, alignShips]);
+
 
   return (
     <div className={styles.choose}>
@@ -53,11 +55,10 @@ export default function ChooseShips() {
       <h3>Arrange your ships on grid</h3>
       <div className={styles.ships}>
         {Object.entries(shipsCount).map(([size, count], index) => (
-          <div>
+          <div key={size + index}>
             <span>Count: {count}</span>
             <img
               src={`/ships/${size}.png`}
-              key={size + index}
               alt="huge"
               itemType={!count ? 'disabled' : ''}
               className={activeShip === size ? styles.active : ''}
@@ -75,7 +76,8 @@ export default function ChooseShips() {
           type="switch"
           id="custom-switch"
           label={alignShips ? 'vertical' : 'horizonal'}
-          onChange={(e) => setAlignShips(Boolean(e.target.value))}
+          checked={alignShips}
+          onChange={() => setAlignShips((state) => !state)}
         />
         <Button variant="dark">Automatically</Button>
       </div>
